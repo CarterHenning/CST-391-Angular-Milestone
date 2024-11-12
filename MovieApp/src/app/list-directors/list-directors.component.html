@@ -1,0 +1,7 @@
+<div class="list-group" *ngIf="selectedDirector == null">
+  <button class="list-group-item" active *ngFor="let director of directors" (click)="onSelectDirector(director)">{{ director.director }}</button>
+</div>
+
+<div *ngIf="selectedDirector">
+  <app-list-movies [director]="selectedDirector"></app-list-movies>
+</div>

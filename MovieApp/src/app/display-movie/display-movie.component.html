@@ -1,0 +1,56 @@
+<div *ngIf="!showAddReview">
+  <div class="movie-card">
+    <div class="movie-details">
+      <h3 style="cursor: pointer;" (click)="deselectMovie()">X</h3>
+      <div class="movie-details-header">
+        <div class="movie-img-container">
+          <img src="{{ movie.Image }}" alt="{{ movie.Name }}" class="movie-img">
+        </div>
+
+        <div style="display: flex; flex-direction: column;">
+          <h1 class="movie-title">{{ movie.Name }}</h1>
+          <h3 class="movie-director">{{ movie.Director }}</h3>
+          <h3 class="movie-date">{{ movie.Date }}</h3>
+          <div *ngIf="overallRating !== undefined">
+            <h3>{{ overallRating }} / 10</h3>
+          </div>
+        </div>
+      </div>
+      <div class="movie-info">
+        <p class="movie-description">{{ movie.Description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; color: white; margin-top: 20px;">
+    <h3>Reviews</h3>
+    <button class="btn btn-add" (click)="showAddReview = true; selectedReview = null">Add</button>
+  </div>
+
+  <div class="review-section" *ngIf="reviews.length > 0">
+    <div class="review-card" *ngFor="let review of reviews">
+      <div class="review-details">
+        <span style="font-size: 1.3em;">{{ review.Comment }}</span>
+      </div>
+      <div class="review-rating">
+        <div style="display: flex; flex-direction: column;">
+          <span style="font-size: 2em;">{{ review.Rating }}</span>
+          <div style="display: flex;" *ngIf="review.UserId === currentUserId">
+            <button (click)="showAddReview = true; selectedReview = review">Edit</button>
+            <button (click)="deleteReview(review.reviewId)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showAddReview && currentUserId != null">
+  <app-add-review
+    *ngIf="movie"
+    [movieId]="movie.MovieId"
+    [currentUserId]="currentUserId"
+    [review]="selectedReview"
+    (reviewAdded)="onReviewAdded()">
+  </app-add-review>
+</div>

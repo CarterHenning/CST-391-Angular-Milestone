@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <div class="row" *ngIf="selectedMovie == null">
+  <div class="grid">
+    <div class="card" *ngFor="let movie of movies" (click)="onSelectMovie(movie)">
+      <div class="card-image">
+        <img src="{{ movie.Image }}" alt="{{ movie.Name }}">
+      </div>
+      <div class="card-info">
+        <h5 class="card-title">{{ movie.Name }}</h5>
+        <p class="card-text">{{ movie.Date }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-display-movie
+    *ngIf="selectedMovie"
+    [movie]="selectedMovie"
+    (deselectMovieEvent)="deselectMovie()">
+  </app-display-movie>
+
+
+
