@@ -1,0 +1,223 @@
+body {
+  background-color: rgb(26, 26, 26);
+  color: white;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.login-container {
+  display: grid;
+  place-items: center;
+  color: rgb(255, 255, 255);
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.1);
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 16px;
+}
+
+.card {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  border: none;
+  background-color: rgb(49, 49, 49);
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.card-info {
+  position: absolute;
+  top: 50;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-info {
+  transform: translateY(0);
+}
+
+.movie-details {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.movie-header {
+  display: flex;
+  gap: 20px;
+}
+
+.header-info {
+
+}
+
+.director {
+  font-size: 1.3em;
+  font-weight: 500;
+  color: rgb(196, 195, 195);
+}
+
+.date {
+  font-size: 1.2em;
+  font-weight: 100;
+  color: rgb(196, 195, 195);
+}
+
+.description {
+  font-size: 1.1em;
+  color: rgb(196, 195, 195);
+  width: 80%;
+}
+
+.review-card {
+  border: 1px solid grey;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rating {
+  justify-self: flex-end;
+  align-self: flex-end;
+}
+
+.add-button {
+  padding: 10px;
+  background-color: transparent;
+  border: 2px solid grey;
+  border-radius: 5px;
+  color: white;
+}
+
+.add-button:hover {
+  background-color: rgb(36, 36, 36);
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #5f5f5f;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-actions button:first-child {
+  background-color: #6e6e6e;
+  color: white;
+}
+
+.modal-actions button:last-child {
+  background-color: #6e6e6e;
+  color: white;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.add-container {
+  display: grid;
+  place-items: center;
+}
